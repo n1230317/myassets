@@ -1,0 +1,2 @@
+# myassets
+no
