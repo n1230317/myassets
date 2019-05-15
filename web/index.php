@@ -8,16 +8,16 @@ $channelAccessToken = 'ufu230I+sy++55QUixRga1o8fVYazEJwWpt3COlQD8MHqgqG9bFjCGIha
 $channelSecret = 'c4720e166942bddbdd6160021cc6363c';
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
-
+$client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
-			$message = $event['message'];
-			
-			$json = file_get_contents('https://spreadsheets.google.com/feeds/list/1jK7Ol4WNnaLtjcJNgDAm5Apkty2eOb_g9C1o98KTI8I/od6/public/values?alt=json');
+            $message = $event['message'];
+
+            $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1jK7Ol4WNnaLtjcJNgDAm5Apkty2eOb_g9C1o98KTI8I/od6/public/values?alt=json');
             $data = json_decode($json, true);
             $result = array();
-			
+
             foreach ($data['feed']['entry'] as $item) {
                 $keywords = explode(',', $item['gsx$keyword']['$t']);
 
@@ -73,8 +73,18 @@ foreach ($client->parseEvents() as $event) {
                     error_log("Unsupporeted message type: " . $message['type']);
                     break;
             }
-            
-			/*
+            break;
+        default:
+            error_log("Unsupporeted event type: " . $event['type']);
+            break;
+    }
+};
+
+/*
+foreach ($client->parseEvents() as $event) {
+    switch ($event['type']) {
+        case 'message':
+			$message = $event['message'];
 			switch ($message['type']) {
                 
 				case 'text':
@@ -94,11 +104,12 @@ foreach ($client->parseEvents() as $event) {
                 	}
                     break;
                 
-            }*/
+            }
             break;
         default:
             error_log("Unsupporeted event type: " . $event['type']);
             break;
     }
 };
+*/
 
