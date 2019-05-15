@@ -1,33 +1,32 @@
-# linebot-php-heroku-framework
+line-bot-sdk-tiny
+==
 
-a tiny PHP framework to deploy your linebot on heroku
+A very simple SDK (subset) for the LINE Messaging API for PHP.
 
-just comebine the [heroku/php-getting-started](https://github.com/heroku/php-getting-started) and [linebot-php-sdk](https://github.com/line/line-bot-sdk-php)
+Description (and motivation)
+--
 
-## Getting Started
+[line-bot-sdk-php](https://github.com/line/line-bot-sdk-php) is a full-stack implementation of the LINE Messaging API SDK, which uses an OOP interface and functions. It provides an API client, a message builder, an HTTP client, an event parser and other useful components.
 
-1.Register linebot service [lineservice](https://business.line.me/services/bot).
+On the other hand, line-bot-sdk-tiny provides a simple interface and functions. It contains a part of the API functions (not full function).
 
-2.Turn on the [bot service](https://admin-official.line.me/) .
+This SDK contains only one file, so it is easy to add `LINEBotTiny.php` to your environment and require that from your script.
+And of course, you can also copy and paste this SDK.
 
-3.Enable Webhook sending and disable auto-sending setting.
+Example
+--
 
-4.Remember your ChannelSecret and issued ChannelAccessToken as parameters.
+See [echo_bot](./echo_bot.php).
 
-5.Deploy your linebot with the under button.
+When running this example, make sure that you have set your Channel access token and Channel secret.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Requirements
+--
 
-6.Fill Webhook URL in developers page with 	https://[your app name].herokuapp.com:443/callback
+PHP 5.5 or later
 
-7.Done.
-
-See detail with picture at [my web](http://www.chy.tw/2017/08/phpherokulinebot.html).
-
-## License
-
-the original code owned by LINE Corporation
-
+License
+--
 
 ```
 Copyright 2016 LINE Corporation
@@ -44,5 +43,3 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 ```
-
-
